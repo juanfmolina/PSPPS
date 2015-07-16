@@ -6,16 +6,17 @@ import java.util.LinkedList;
 
 import co.edu.udea.ps.psp.p1.exception.MathModelException;
 import co.edu.udea.ps.psp.p1.filemanager.FileManager;
+import co.edu.udea.ps.psp.p1.mathmodel.MathCalculator;
 
 public class Controller {
 	private FileManager fileManager;
+	private MathCalculator calculator;
 	
-	private LinkedList<Double> numberList;
 	
 	
-
 	public Controller() {
 		fileManager= new FileManager();
+		calculator = new MathCalculator();
 	}
 
 
@@ -33,16 +34,18 @@ public class Controller {
 		return numbers;
 	}
 
+	public double calculateMean(LinkedList<Double> numbers) throws MathModelException{
 
+			double mean = calculator.calculateMean(numbers);
 
-	public LinkedList<Double> getNumberList() {
-		return numberList;
+		return mean;
 	}
 
 
 
-	public void setNumberList(LinkedList<Double> numberList) {
-		this.numberList = numberList;
+	public double calculateStandardDesviation(LinkedList<Double> numbers) throws MathModelException {
+		double sd= calculator.calculateStandarDesviation(numbers);
+		return sd;
 	}
 	
 	
