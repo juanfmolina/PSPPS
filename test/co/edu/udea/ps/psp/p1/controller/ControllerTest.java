@@ -52,7 +52,7 @@ public class ControllerTest {
 		try {
 			
 			mean = controller.calculateMean(controller.getnumbersFromFile(path));
-			assertEquals(2.466667, mean, 0.0001);
+			assertEquals(2.1666666, mean, 0.0001);
 		} catch (MathModelException e) {
 			assertEquals("El archivo no existe", e.getMessage());
 		}
@@ -65,7 +65,7 @@ public class ControllerTest {
 		try {
 			
 			mean = controller.calculateStandardDesviation(controller.getnumbersFromFile(path));
-			assertEquals(0.50332, mean, 0.0001);
+			assertEquals(1.258305, mean, 0.0001);
 		} catch (MathModelException e) {
 			assertEquals("El archivo no existe", e.getMessage());
 		}

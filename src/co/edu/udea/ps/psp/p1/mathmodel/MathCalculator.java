@@ -1,5 +1,7 @@
 package co.edu.udea.ps.psp.p1.mathmodel;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.LinkedList;
 
 import co.edu.udea.ps.psp.p1.exception.MathModelException;
@@ -16,9 +18,16 @@ public class MathCalculator {
 			sum+=number;
 			count+=1;
 		}
-		return sum/count;
+		
+		return setscale(4,sum/count);
 	}
 	
+	private double setscale(int scale, double number) {
+		BigDecimal bd = new BigDecimal(number);
+	    bd = bd.setScale(scale, RoundingMode.HALF_UP);
+	    return bd.doubleValue();
+	}
+
 	public boolean validateListSize(LinkedList<Double> numbers){
 		if (numbers==null || numbers.isEmpty()) {
 			return false;
@@ -41,7 +50,7 @@ public class MathCalculator {
 		
 		double sd = Math.sqrt((sumOfSqrt / (numbercount - 1)));
 		
-		return sd;
+		return setscale(4, sd);
 	}
 
 }
